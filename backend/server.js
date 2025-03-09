@@ -19,7 +19,9 @@ const port = 3000; // Define the port for the server
 
 // middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: 'https://tomato-fullstack.vercel.app' // Allow requests from the frontend domain
+}));
 
 // db connection
 connectDB();
