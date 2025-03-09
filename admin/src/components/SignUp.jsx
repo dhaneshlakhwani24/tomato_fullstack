@@ -5,9 +5,11 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const SignUp = ({ url }) => {
-    SignUp.propTypes = {
+SignUp.propTypes = {
         url: PropTypes.string.isRequired
     };
+
+
 
 
     const [email, setEmail] = useState('');
@@ -21,7 +23,8 @@ const SignUp = ({ url }) => {
             return;
         }
         try {
-            const response = await axios.post(`${url}/api/auth/signup`, { email, password });
+            const response = await axios.post(`${url}/api/user/register`, { email, password });
+
             if (response.data.success) {
                 toast.success(response.data.message);
                 // Handle successful sign-up (e.g., redirect to sign-in)

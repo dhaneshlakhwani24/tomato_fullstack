@@ -5,10 +5,10 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-  "preinstall": "npm rebuild bcrypt --build-from-source",
-  "start": "node server.js",
-  "server": "nodemon server.js"
-},
+    "preinstall": "npm rebuild bcrypt --build-from-source",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

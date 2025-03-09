@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const SignIn = ({ url }) => {
+    SignIn.propTypes = {
+        url: PropTypes.string.isRequired
+    };
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${url}/api/auth/signin`, { email, password });
+            const response = await axios.post(`${url}/api/user/login`, { email, password });
+
             if (response.data.success) {
                 toast.success(response.data.message);
                 // Handle successful sign-in (e.g., store token, redirect)
